@@ -28,7 +28,6 @@ public class CustomAngleResource {
         return customAngle;
     }
 
-
     private void processCustomAngle(CustomAngle customAngle) {
         String customAngleAsString = customAngle.toEngineeringFormat();
         logger.info("Revolutions: {}", customAngleAsString);

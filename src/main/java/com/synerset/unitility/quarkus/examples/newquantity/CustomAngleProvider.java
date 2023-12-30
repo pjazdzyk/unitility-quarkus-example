@@ -1,7 +1,7 @@
 package com.synerset.unitility.quarkus.examples.newquantity;
 
-import com.synerset.unitility.quarkus.PhysicalQuantityParamJakartaConverter;
 import com.synerset.unitility.quarkus.examples.newquantity.customunits.CustomAngle;
+import com.synerset.unitility.quarkus.serdes.PhysicalQuantityParamJakartaConverter;
 import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.ext.ParamConverter;
@@ -21,12 +21,12 @@ public class CustomAngleProvider implements ParamConverterProvider {
 
     private final Map<Class<?>, ParamConverter<?>> customConverters;
 
-    public CustomAngleProvider(CustomParsingRegistryWithAngle parsingRegistry) {
+    public CustomAngleProvider(CustomParsingFactoryWithAngle parsingFactory) {
         // Registry initialization
-        ConcurrentHashMap<Class<?>, ParamConverter<?>> convertersByMap = new ConcurrentHashMap<>();
+        ConcurrentHashMap<Class<?>, ParamConverter<?>> convertersByClass = new ConcurrentHashMap<>();
         // Register your custom quantities
-        convertersByMap.put(CustomAngle.class, new PhysicalQuantityParamJakartaConverter<>(CustomAngle.class, parsingRegistry));
-        customConverters = Collections.unmodifiableMap(convertersByMap);
+        convertersByClass.put(CustomAngle.class, new PhysicalQuantityParamJakartaConverter<>(CustomAngle.class, parsingFactory));
+        customConverters = Collections.unmodifiableMap(convertersByClass);
     }
 
     @Override

@@ -2,18 +2,17 @@ package com.synerset.unitility.quarkus.examples.newquantity;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.synerset.unitility.jackson.PhysicalQuantityDeserializer;
+import com.synerset.unitility.jackson.serdes.PhysicalQuantityDeserializer;
 import com.synerset.unitility.quarkus.examples.newquantity.customunits.CustomAngle;
-import com.synerset.unitility.unitsystem.utils.PhysicalQuantityParsingRegistry;
 import io.quarkus.jackson.ObjectMapperCustomizer;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class CustomAngleObjectMapperCustomizer implements ObjectMapperCustomizer {
 
-    private final PhysicalQuantityParsingRegistry customRegistry;
+    private final CustomParsingFactoryWithAngle customRegistry;
 
-    public CustomAngleObjectMapperCustomizer(CustomParsingRegistryWithAngle customRegistry) {
+    public CustomAngleObjectMapperCustomizer(CustomParsingFactoryWithAngle customRegistry) {
         this.customRegistry = customRegistry;
     }
 
