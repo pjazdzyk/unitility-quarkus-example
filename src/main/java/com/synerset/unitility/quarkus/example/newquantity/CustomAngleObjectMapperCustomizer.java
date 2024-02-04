@@ -1,9 +1,9 @@
-package com.synerset.unitility.quarkus.examples.newquantity;
+package com.synerset.unitility.quarkus.example.newquantity;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.synerset.unitility.jackson.serdes.PhysicalQuantityDeserializer;
-import com.synerset.unitility.quarkus.examples.newquantity.customunits.CustomAngle;
+import com.synerset.unitility.jackson.serialization.PhysicalQuantityDeserializer;
+import com.synerset.unitility.quarkus.example.newquantity.customunit.CustomAngle;
 import io.quarkus.jackson.ObjectMapperCustomizer;
 import jakarta.enterprise.context.ApplicationScoped;
 

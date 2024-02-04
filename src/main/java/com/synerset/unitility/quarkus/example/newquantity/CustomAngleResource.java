@@ -1,6 +1,6 @@
-package com.synerset.unitility.quarkus.examples.newquantity;
+package com.synerset.unitility.quarkus.example.newquantity;
 
-import com.synerset.unitility.quarkus.examples.newquantity.customunits.CustomAngle;
+import com.synerset.unitility.quarkus.example.newquantity.customunit.CustomAngle;
 import com.synerset.unitility.unitsystem.common.AngleUnits;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;

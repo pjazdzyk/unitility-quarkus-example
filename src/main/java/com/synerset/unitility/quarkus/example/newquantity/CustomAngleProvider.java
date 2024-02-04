@@ -1,7 +1,7 @@
-package com.synerset.unitility.quarkus.examples.newquantity;
+package com.synerset.unitility.quarkus.example.newquantity;
 
-import com.synerset.unitility.quarkus.examples.newquantity.customunits.CustomAngle;
-import com.synerset.unitility.quarkus.serdes.PhysicalQuantityParamJakartaConverter;
+import com.synerset.unitility.quarkus.example.newquantity.customunit.CustomAngle;
+import com.synerset.unitility.quarkus.serialization.PhysicalQuantityParamJakartaConverter;
 import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.ext.ParamConverter;

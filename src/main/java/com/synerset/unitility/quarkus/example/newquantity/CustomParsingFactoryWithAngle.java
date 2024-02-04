@@ -1,8 +1,9 @@
-package com.synerset.unitility.quarkus.examples.newquantity;
+package com.synerset.unitility.quarkus.example.newquantity;
 
-import com.synerset.unitility.quarkus.examples.newquantity.customunits.CustomAngle;
+import com.synerset.unitility.quarkus.example.newquantity.customunit.CustomAngle;
 import com.synerset.unitility.unitsystem.PhysicalQuantity;
-import com.synerset.unitility.unitsystem.PhysicalQuantityParsingFactory;
+import com.synerset.unitility.unitsystem.util.PhysicalQuantityAbstractParsingFactory;
+import com.synerset.unitility.unitsystem.util.PhysicalQuantityParsingFactory;
 import io.quarkus.arc.DefaultBean;
 import jakarta.enterprise.context.ApplicationScoped;
 
@@ -13,7 +14,7 @@ import java.util.function.BiFunction;
 
 @DefaultBean
 @ApplicationScoped
-public class CustomParsingFactoryWithAngle implements PhysicalQuantityParsingFactory {
+public class CustomParsingFactoryWithAngle extends PhysicalQuantityAbstractParsingFactory {
 
     private final Map<Class<?>, BiFunction<Double, String, ? extends PhysicalQuantity<?>>> customRegistry;
 
@@ -21,7 +22,7 @@ public class CustomParsingFactoryWithAngle implements PhysicalQuantityParsingFac
         Map<Class<?>, BiFunction<Double, String, ? extends PhysicalQuantity<?>>> registry = new ConcurrentHashMap<>();
         registry.put(CustomAngle.class, CustomAngle::of);
         // We need to merge our map with a default parsing map. This bean must contain all parsing functions, not only the new one.
-        registry.putAll(PhysicalQuantityParsingFactory.DEFAULT_PARSING_FACTORY.getClassRegistry());
+        registry.putAll(PhysicalQuantityParsingFactory.getDefaultParsingFactory().getClassRegistry());
         this.customRegistry = Collections.unmodifiableMap(registry);
     }
 

@@ -1,4 +1,4 @@
-package com.synerset.unitility.quarkus.examples.defaultunits;
+package com.synerset.unitility.quarkus.example.defaultunit;
 
 import com.synerset.unitility.unitsystem.geographic.GeoCoordinate;
 import com.synerset.unitility.unitsystem.geographic.GeoDistance;

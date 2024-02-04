@@ -1,4 +1,4 @@
-package com.synerset.unitility.quarkus.examples.newquantity.customunits;
+package com.synerset.unitility.quarkus.example.newquantity.customunit;
 
 import com.synerset.unitility.unitsystem.CalculableQuantity;
 import com.synerset.unitility.unitsystem.common.AngleUnit;
