@@ -5,6 +5,7 @@ import com.synerset.unitility.unitsystem.geographic.GeoDistance;
 import com.synerset.unitility.unitsystem.geographic.Latitude;
 import com.synerset.unitility.unitsystem.geographic.Longitude;
 import com.synerset.unitility.unitsystem.thermodynamic.Temperature;
+import com.synerset.unitility.validation.PhysicalMax;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import org.slf4j.Logger;
@@ -18,7 +19,7 @@ public class DefaultUnitsResource {
     @GET
     @Path("/temperatures/{temperature}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Temperature getTemperatureByPath(@PathParam("temperature") Temperature temperature) {
+    public Temperature getTemperatureByPath(@PathParam("temperature") @PhysicalMax("50oC")  Temperature temperature) {
         logger.info("ENG format: {}", temperature.toEngineeringFormat());
         logger.info("ENG format in F: {}", temperature.toFahrenheit().toEngineeringFormat());
         // Delegate to service, processing
