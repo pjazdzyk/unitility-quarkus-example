@@ -13,9 +13,9 @@
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
         <compiler-plugin.version>3.13.0</compiler-plugin.version>
-        <quarkus.platform.version>3.11.0</quarkus.platform.version>
-        <surefire-plugin.version>3.2.5</surefire-plugin.version>
-        <unitility-bom.version>2.4.1</unitility-bom.version>
+        <quarkus.platform.version>3.17.5</quarkus.platform.version>
+        <surefire-plugin.version>3.5.2</surefire-plugin.version>
+        <unitility-bom.version>2.5.0</unitility-bom.version>
         <skipITs>true</skipITs>
     </properties>
     <dependencyManagement>

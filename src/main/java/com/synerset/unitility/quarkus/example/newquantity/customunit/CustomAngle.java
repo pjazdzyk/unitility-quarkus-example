@@ -1,6 +1,7 @@
 package com.synerset.unitility.quarkus.example.newquantity.customunit;
 
 import com.synerset.unitility.unitsystem.CalculableQuantity;
+import com.synerset.unitility.unitsystem.PhysicalQuantity;
 import com.synerset.unitility.unitsystem.common.AngleUnit;
 import com.synerset.unitility.unitsystem.common.AngleUnits;
 
@@ -43,7 +44,7 @@ public class CustomAngle implements CalculableQuantity<AngleUnit, CustomAngle> {
     }
 
     @Override
-    public AngleUnit getUnitType() {
+    public AngleUnit getUnit() {
         return unitType;
     }
 
@@ -61,6 +62,11 @@ public class CustomAngle implements CalculableQuantity<AngleUnit, CustomAngle> {
     }
 
     @Override
+    public PhysicalQuantity<AngleUnit> toUnit(String targetUnit) {
+        return null;
+    }
+
+    @Override
     public CustomAngle withValue(double value) {
         return CustomAngle.of(value, unitType);
     }
@@ -70,7 +76,7 @@ public class CustomAngle implements CalculableQuantity<AngleUnit, CustomAngle> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CustomAngle inputQuantity = (CustomAngle) o;
-        return Double.compare(inputQuantity.toBaseUnit().getValue(), baseValue) == 0 && Objects.equals(unitType.getBaseUnit(), inputQuantity.getUnitType().getBaseUnit());
+        return Double.compare(inputQuantity.toBaseUnit().getValue(), baseValue) == 0 && Objects.equals(unitType.getBaseUnit(), inputQuantity.getUnit().getBaseUnit());
     }
 
     @Override
@@ -80,7 +86,7 @@ public class CustomAngle implements CalculableQuantity<AngleUnit, CustomAngle> {
 
     @Override
     public String toString() {
-        String separator = getUnitType().getSymbol().contains("°") ? "" : " ";
+        String separator = getUnit().getSymbol().contains("°") ? "" : " ";
         return "CustomAngle{" + value + separator + unitType.getSymbol() + '}';
     }
 
